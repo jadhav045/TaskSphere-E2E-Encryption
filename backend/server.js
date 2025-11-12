@@ -16,6 +16,7 @@ app.use(express.urlencoded({ extended: false }));
 // Routes
 app.use('/api/auth', require('./routes/authRoutes'));
 app.use('/api/tasks', require('./routes/taskRoutes'));
+app.use('/api/diary', require('./routes/diaryRoutes'));
 
 // Basic route
 app.get('/', (req, res) => {

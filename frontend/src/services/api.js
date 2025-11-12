@@ -3,9 +3,6 @@ import axios from "axios";
 // const API_URL = "http://localhost:5000/api" || process.env.REACT_APP_API_URL
 const API_URL = import.meta.env.VITE_API_URL || "http://localhost:5000/api";
 
-
-
-
 // Create axios instance
 const api = axios.create({
   baseURL: API_URL,
@@ -85,6 +82,38 @@ export const taskAPI = {
 
   deleteTask: async (id) => {
     const response = await api.delete(`/tasks/${id}`);
+    return response.data;
+  },
+};
+
+export const diaryAPI = {
+  getDiaryMonth: async (year, month) => {
+    const response = await api.get(`/diary/month/${year}/${month}`);
+    return response.data;
+  },
+
+  getDiaryByDate: async (date) => {
+    const response = await api.get(`/diary/${date}`);
+    return response.data;
+  },
+
+  createEntry: async (entryData) => {
+    const response = await api.post("/diary", entryData);
+    return response.data;
+  },
+
+  updateEntry: async (date, entryId, entryData) => {
+    const response = await api.put(`/diary/${date}/${entryId}`, entryData);
+    return response.data;
+  },
+
+  deleteEntry: async (date, entryId) => {
+    const response = await api.delete(`/diary/${date}/${entryId}`);
+    return response.data;
+  },
+
+  getStats: async () => {
+    const response = await api.get("/diary/stats");
     return response.data;
   },
 };

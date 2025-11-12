@@ -8,10 +8,12 @@ import {
 import { Toaster } from "react-hot-toast";
 import { AuthProvider } from "./contexts/AuthContext";
 import { TaskProvider } from "./contexts/TaskContext";
+import { DiaryProvider } from "./contexts/DiaryContext";
 import ProtectedRoute from "./components/ProtectedRoute";
 import Login from "./pages/Login";
 import Register from "./pages/Register";
 import Dashboard from "./pages/Dashboard";
+import Diary from "./pages/Diary";
 
 function App() {
   return (
@@ -22,6 +24,13 @@ function App() {
             <Routes>
               <Route path="/login" element={<Login />} />
               <Route path="/register" element={<Register />} />
+             <Route path="/diary" element={
+                <ProtectedRoute>
+                  <DiaryProvider>
+                    <Diary />
+                  </DiaryProvider>
+                </ProtectedRoute>
+              } />
               <Route
                 path="/dashboard"
                 element={
@@ -31,6 +40,7 @@ function App() {
                 }
               />
               <Route path="/" element={<Navigate to="/dashboard" replace />} />
+              {/* <Route path="/" element={<Navigate to="/dashboard" replace />} /> */}
             </Routes>
             <Toaster
               position="top-right"

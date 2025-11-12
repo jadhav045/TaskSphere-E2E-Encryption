@@ -3,7 +3,8 @@ import { useAuth } from '../contexts/AuthContext';
 import { useTask } from '../contexts/TaskContext';
 import TaskList from '../components/TaskList';
 import TaskForm from '../components/TaskForm';
-import { LogOut, Plus, Shield, User } from 'lucide-react';
+import { LogOut, Plus, Shield, User, BookOpen } from 'lucide-react';
+import { useNavigate } from 'react-router-dom';
 
 const Dashboard = () => {
   const { user, logout } = useAuth();
