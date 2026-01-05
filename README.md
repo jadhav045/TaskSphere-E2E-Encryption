@@ -45,7 +45,7 @@ TaskSphere/
 
 ### 1️⃣ Clone Repository
 ```bash
-git clone https://github.com/<your-username>/tasksphere.git
+git clone https://github.com/jadhav045/TaskSphere-E2E-Encryption.git
 cd tasksphere
 ```
 
